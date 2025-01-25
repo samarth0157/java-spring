@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-tutorial
+  labels:
+    app: java-tutorial
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: java-tutorial
+  template:
+    metadata:
+      labels:
+        app: java-tutorial
+    spec:
+      containers:
+      - name: java-tutorial
+        image: java-tutorial:latest  # Ensure this matches your image name
+        imagePullPolicy: IfNotPresent  # Use the local image
+        ports:
+        - containerPort: 8080

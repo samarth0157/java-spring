@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">Java Basics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            color: #4CAF50;
+        }
+        section {
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            margin: 10px 0;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #888;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 th:text="${title}">Welcome to Java Basics</h1>
+    </header>
+
+    <section>
+        <h2>Introduction</h2>
+        <p th:text="${intro}">Java is a high-level, object-oriented programming language...</p>
+    </section>
+
+    <section>
+        <h2>Key Features of Java</h2>
+        <ul>
+            <li th:each="feature : ${features}" th:text="${feature}">Feature</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Popular Use Cases</h2>
+        <ul>
+            <li th:each="useCase : ${useCases}" th:text="${useCase}">Use Case</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Why Learn Java?</h2>
+        <ul>
+            <li th:each="reason : ${whyLearn}" th:text="${reason}">Reason</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Resources to Learn Java</h2>
+        <ul>
+            <li th:each="resource : ${resources}">
+                <a th:href="${#strings.substring(resource, 0, #strings.indexOf(resource, ' - '))}"
+                   th:text="${resource}">Resource</a>
+            </li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>© 2025 Java Tutorial - Empowering students with technology created for demo by samarth0157!</p>
+    </footer>
+</body>
+</html>
