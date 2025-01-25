@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Java Tutorial Web Application
 
@@ -25,3 +26,6 @@ This is a simple Java application built using Spring Boot and Thymeleaf to provi
 
 ## License
 [MIT License](LICENSE)
+=======
+# java-spring
+>>>>>>> d6d4dcd (first commit)
