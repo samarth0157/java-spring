@@ -5,15 +5,15 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressClassName: nginx  # Specifies the NGINX ingress controller
+  ingressClassName: nginx  # Explicitly set the NGINX ingress class
   rules:
-  - host: java-tutorial.local
+  - host: java-tutorial.local  # Replace with your custom domain or use this for local testing
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: java-tutorial  # Must match the Service name
+            name: java-tutorial  # Ensure this matches your service name
             port:
               number: 80
