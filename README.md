@@ -29,3 +29,49 @@ This is a simple Java application built using Spring Boot and Thymeleaf to provi
 =======
 # java-spring
 >>>>>>> d6d4dcd (first commit)
+
+
+##
+mvn clean package -DskipTests
+java -jar target/java-tutorial-1.0-SNAPSHOT.jar
+
+
+## Final obserability workshop 
+
+# Observability Lab: Spring Boot + Minikube + Prometheus + Grafana + Loki + Tempo
+
+End-to-end, local, reproducible setup to learn observability with a Java Spring Boot app:
+- **Metrics** via Micrometer → **Prometheus**
+- **Logs** via stdout → **Promtail → Loki**
+- **Traces** via OpenTelemetry → **Tempo**
+- Visualize everything in **Grafana**
+
+> Works great on **Minikube**. No cloud required.
+
+---
+
+## ✅ Prerequisites
+
+- Java 17+ and Maven
+- Docker
+- Minikube & kubectl
+- Helm
+- (Optional) GHCR account & PAT if you push images to GitHub Container Registry
+
+---
+
+## 1) Build the app & container image
+
+```bash
+# from repo root
+mvn clean package -DskipTests
+
+# OPTION A: Build directly into Minikube (fastest local dev)
+eval $(minikube docker-env)
+docker build -t java-tutorial:latest .
+
+# OPTION B: Build for GHCR (if you want to pull from registry)
+docker build -t ghcr.io/<your-username>/java-tutorial:latest .
+docker push ghcr.io/<your-username>/java-tutorial:latest
+
+##samaut

@@ -13,11 +13,15 @@ spec:
     metadata:
       labels:
         app: java-tutorial
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/actuator/prometheus"
+        prometheus.io/port: "8080"
     spec:
       containers:
       - name: java-tutorial
         image: ghcr.io/samarth0157/java-tutorial:latest
         ports:
         - containerPort: 8080
-      imagePullSecrets:  # Reference the secret here
+      imagePullSecrets:
       - name: ghcr-secret
